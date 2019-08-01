@@ -1,0 +1,10 @@
+{
+    "generalConfiguration": {
+        "exclude": ["\\.d\\.ts"],
+        "sortOnBeforeSave": true
+    },
+    "importStringConfiguration": {
+        "hasSemicolon": false,
+        "trailingComma": "multiLine"
+    }
+}
