@@ -29,6 +29,7 @@
     "repository": "git@github.com:JochenAtWork/isxs-validation.git",
     "scripts": {
         "build": "tsc",
+        "test": "node lib/test/index",
         "watch": "tsc --watch"
     },
     "typings": "./index.d.ts",

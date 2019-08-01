@@ -1,1 +1,5 @@
-console.log("Hello World")
+import { testSimpleSchema } from './simpleSchema'
+
+testSimpleSchema()
+
+console.log('alle Tests durchgeführt')
