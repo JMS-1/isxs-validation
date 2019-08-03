@@ -1,12 +1,18 @@
 {
     "author": "Dr. Jochen Manns <vcrnet-1@psimarron.net>",
     "dependencies": {
-        "djv": "2.1.3-alpha.0"
+        "@jms-1/isxs-tools": "^1.0.17",
+        "debug": "4.1.1",
+        "djv": "2.1.3-alpha.0",
+        "uuid": "3.3.2"
     },
     "description": "Validation helper for iSxS",
     "devDependencies": {
+        "@types/debug": "4.1.4",
         "@types/djv": "2.1.0",
+        "@types/mongodb": "3.1.31",
         "@types/node": "10.11.7",
+        "@types/uuid": "3.4.5",
         "@typescript-eslint/eslint-plugin": "1.13.0",
         "@typescript-eslint/parser": "1.13.0",
         "del": "5.0.0",
@@ -20,6 +26,7 @@
         "gulp-shell": "0.7.1",
         "gulp-sourcemaps": "2.6.5",
         "gulp-typescript": "5.0.1",
+        "mongodb": "3.2.7",
         "prettier": "1.18.2",
         "typescript": "3.5.3"
     },
@@ -29,6 +36,7 @@
     "repository": "git@github.com:JMS-1/isxs-validation.git",
     "scripts": {
         "build": "tsc",
+        "debug-tests": "node --inspect-brk=29091 lib/test/index",
         "test": "node lib/test/index",
         "watch": "tsc --watch"
     },

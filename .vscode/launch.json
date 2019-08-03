@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "console": "internalConsole",
+            "env": {
+                "DEBUG": "*"
+            },
+            "name": "Tests",
+            "port": 29091,
+            "protocol": "inspector",
+            "request": "launch",
+            "runtimeArgs": ["run-script", "debug-tests"],
+            "runtimeExecutable": "npm",
+            "smartStep": true,
+            "sourceMaps": true,
+            "type": "node"
+        }
+    ],
+    "version": "0.2.0"
+}
