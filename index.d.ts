@@ -2,9 +2,13 @@ import { Collection, FilterQuery, Db } from 'mongodb'
 
 export const uniqueId: string
 
+export interface IMuiString {
+    [language: string]: string
+}
+
 export interface IValidationScope {
     readonly items?: any
-    readonly message?: string
+    readonly message?: IMuiString
     readonly properties?: any
 }
 
@@ -14,14 +18,14 @@ export interface IValidatableSchema extends IValidationScope {
 
 export interface IValidationError {
     readonly constraint: string
-    readonly message: string
+    readonly message: IMuiString
     readonly property: string
 }
 
 export type KeysOf<T> = keyof T
 
 export interface IFieldSchemaCommon {
-    message?: string
+    message?: IMuiString
 }
 
 export interface IObjectFieldSchema<TEntity> extends IFieldSchemaCommon {
@@ -83,7 +87,7 @@ export abstract class CollectionBase<TType extends { _id: string }> {
 
     protected onInitialize(collection: Collection<TType>): Promise<void>
 
-    protected canDelete(id: string): Promise<string>
+    protected canDelete(id: string): Promise<IMuiString>
 
     protected postDelete(id: string): Promise<void>
 

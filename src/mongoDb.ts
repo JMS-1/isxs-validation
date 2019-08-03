@@ -1,3 +1,5 @@
+import { IMuiString } from '../'
+
 interface IMappers {
     [prop: string]: (value: any, target: any, prop: string) => void
 }
@@ -47,8 +49,8 @@ function dataType(value: string, target: any, prop: string): void {
     }
 }
 
-function errorMessage(value: string, target: any, prop: string): void {
-    target.description = value
+function errorMessage(value: IMuiString, target: any, prop: string): void {
+    target.description = (value && (value.en || value.de)) || 'failed'
 }
 
 function subObject(value: any, target: any, prop: string): void {

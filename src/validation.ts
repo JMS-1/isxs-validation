@@ -33,7 +33,7 @@ export function addSchema<TSchema extends IValidatableSchema>(schema: TSchema): 
             errors.push({
                 constraint: "${errorType}",
                 property: ${props.join("+'.'+") || "'*'"},
-                message: "${scope.message || ''}"
+                message: ${JSON.stringify(scope.message || { en: 'failed' })}
             }); }`
 
         return command
@@ -52,7 +52,7 @@ export function validate<TSchema extends IValidatableSchema>(object: any, schema
         return [
             {
                 constraint: 'validator',
-                message: typeof error === 'string' ? error : error.message || 'failed',
+                message: { en: typeof error === 'string' ? error : error.message || 'failed' },
                 property: '*',
             },
         ]

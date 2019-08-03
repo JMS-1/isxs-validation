@@ -3,7 +3,7 @@ import { Collection, Db, FilterQuery } from 'mongodb'
 
 import { getMessage } from '@jms-1/isxs-tools'
 
-import { IValidatableSchema, IValidationError } from '../'
+import { IMuiString, IValidatableSchema, IValidationError } from '../'
 import { convertToMongo } from './mongoDb'
 import { addSchema, validate } from './validation'
 
@@ -37,7 +37,9 @@ export abstract class CollectionBase<TType extends { _id: string }> {
 
         try {
             return (
-                validate(item, this.schema) || [{ constraint: 'database', message: getMessage(error), property: '*' }]
+                validate(item, this.schema) || [
+                    { constraint: 'database', message: { en: getMessage(error) }, property: '*' },
+                ]
             )
         } catch (e) {
             databaseError('error during %s validation: %s', type, getMessage(e))
@@ -64,7 +66,7 @@ export abstract class CollectionBase<TType extends { _id: string }> {
             const updated = await me.findOneAndReplace({ _id: item._id }, item)
 
             if (!updated) {
-                return [{ constraint: 'database', message: 'not found', property: '_id' }]
+                return [{ constraint: 'database', message: { en: 'not found' }, property: '_id' }]
             }
 
             return undefined
@@ -95,8 +97,8 @@ export abstract class CollectionBase<TType extends { _id: string }> {
         return me.findOne({ _id: id.toString() })
     }
 
-    protected canDelete(id: string): Promise<string> {
-        return Promise.resolve<string>(undefined)
+    protected canDelete(id: string): Promise<IMuiString> {
+        return Promise.resolve<IMuiString>(undefined)
     }
 
     protected postDelete(id: string): Promise<void> {
@@ -115,14 +117,14 @@ export abstract class CollectionBase<TType extends { _id: string }> {
             const deleted = await me.deleteOne({ _id: typeof id === 'string' && id })
 
             if (deleted.deletedCount !== 1) {
-                return [{ constraint: 'delete', property: '*', message: 'not found' }]
+                return [{ constraint: 'delete', property: '*', message: { en: 'not found' } }]
             }
 
             await this.postDelete(id)
 
             return undefined
         } catch (error) {
-            return [{ constraint: 'database', property: '*', message: getMessage(error) }]
+            return [{ constraint: 'database', property: '*', message: { en: getMessage(error) } }]
         }
     }
 }

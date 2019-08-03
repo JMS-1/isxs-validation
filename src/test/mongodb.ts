@@ -16,16 +16,16 @@ const testSchema: ISchema<ITestObject> = {
     $id: 'http://isxs-validation.test/schemas/mongodbjson',
     additionalProperties: false,
     type: 'object',
-    message: 'Objekt unvollständig',
+    message: { de: 'Objekt unvollständig' },
     properties: {
         _id: {
-            message: 'Kennung ungültig',
+            message: { de: 'Kennung ungültig' },
             pattern: uniqueId,
             type: 'string',
         },
         name: {
             maxLength: 10,
-            message: 'Name nicht angegeben oder zu lang',
+            message: { de: 'Name nicht angegeben oder zu lang' },
             minLength: 1,
             type: 'string',
         },

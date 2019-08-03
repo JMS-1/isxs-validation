@@ -15,26 +15,26 @@ const testSchema: ISchema<ITest> = {
     $id: 'http://isxs-validation.test/schemas/simple-schema.json',
     additionalProperties: false,
     type: 'object',
-    message: 'Objekt unvollständig',
+    message: { de: 'Objekt unvollständig' },
     properties: {
         _id: {
-            message: 'Kennung ungültig',
+            message: { de: 'Kennung ungültig' },
             pattern: uniqueId,
             type: 'string',
         },
         description: {
             maxLength: 2000,
-            message: 'Beschreibung ist zu lang',
+            message: { de: 'Beschreibung ist zu lang' },
             type: 'string',
         },
         name: {
             maxLength: 50,
-            message: 'Name nicht angegeben oder zu lang',
+            message: { de: 'Name nicht angegeben oder zu lang' },
             minLength: 1,
             type: 'string',
         },
         type: {
-            message: 'Art fehlt oder ist unzulässig',
+            message: { de: 'Art fehlt oder ist unzulässig' },
             type: 'integer',
             enum: [13, 17, 22],
         },
@@ -59,16 +59,20 @@ export function testSimpleSchema(): void {
 
     const _id = results.filter(r => r.property === '_id')
     strict.strictEqual(_id.length, 1, `einfaches Schema: ungültige Anzahl ${_id.length} von Fehlermeldungen für _id`)
-    strict.strictEqual(_id[0].message, 'Kennung ungültig', 'einfaches Schema: ungültige Meldung für _id')
+    strict.strictEqual(_id[0].message.de, 'Kennung ungültig', 'einfaches Schema: ungültige Meldung für _id')
 
     const type = results.filter(r => r.property === 'type')
     strict.strictEqual(type.length, 1, `einfaches Schema: ungültige Anzahl ${type.length} von Fehlermeldungen für type`)
-    strict.strictEqual(type[0].message, 'Art fehlt oder ist unzulässig', 'einfaches Schema: ungültige Meldung für type')
+    strict.strictEqual(
+        type[0].message.de,
+        'Art fehlt oder ist unzulässig',
+        'einfaches Schema: ungültige Meldung für type'
+    )
 
     const name = results.filter(r => r.property === 'name')
     strict.strictEqual(name.length, 1, `einfaches Schema: ungültige Anzahl ${name.length} von Fehlermeldungen für name`)
     strict.strictEqual(
-        name[0].message,
+        name[0].message.de,
         'Name nicht angegeben oder zu lang',
         'einfaches Schema: ungültige Meldung für name'
     )
