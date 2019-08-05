@@ -1,4 +1,4 @@
-declare module '@jms-1/isxs-validation/server' {
+declare module '@jms-1/isxs-validation' {
     import { Collection, FilterQuery, Db } from 'mongodb'
 
     import { IValidatableSchema, IMuiString, IValidationError } from '@jms-1/isxs-validation'
