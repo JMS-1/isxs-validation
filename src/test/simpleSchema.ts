@@ -2,7 +2,7 @@ import { strict } from 'assert'
 
 import { ISchema } from '@jms-1/isxs-validation'
 
-import { addSchema, uniqueId, validate } from '../common/validation'
+import { addSchema, uniqueId, validate } from '../validation'
 
 interface ITest {
     _id: string

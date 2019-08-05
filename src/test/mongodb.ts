@@ -4,8 +4,8 @@ import { v4 as uuid } from 'uuid'
 
 import { ISchema } from '@jms-1/isxs-validation'
 
-import { CollectionBase } from '../collection'
-import { uniqueId } from '../common/validation'
+import { CollectionBase } from '../server/collection'
+import { uniqueId } from '../validation'
 
 interface ITestObject {
     _id: string
