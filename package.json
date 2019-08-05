@@ -40,6 +40,6 @@
         "test": "node lib/test/index",
         "watch": "tsc --watch"
     },
-    "typings": "./index.d.ts",
+    "types": "./index.d.ts",
     "version": "1.1.1"
 }

@@ -15,5 +15,5 @@
         "target": "es2017"
     },
     "exclude": ["node_modules"],
-    "include": ["index.d.ts", "src/**/*.ts"]
+    "include": ["*.d.ts", "src/**/*.ts"]
 }

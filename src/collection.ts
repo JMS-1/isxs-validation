@@ -2,7 +2,7 @@ import * as debug from 'debug'
 import { Collection, Db, FilterQuery } from 'mongodb'
 
 import { getMessage } from '@jms-1/isxs-tools'
-import { IMuiString, IValidatableSchema, IValidationError } from '@jms-1/isxs-validation/common'
+import { IMuiString, IValidatableSchema, IValidationError } from '@jms-1/isxs-validation'
 
 import { addSchema, validate } from './common/validation'
 import { convertToMongo } from './mongoDb'

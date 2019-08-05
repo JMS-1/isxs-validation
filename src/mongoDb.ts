@@ -1,4 +1,4 @@
-import { IMuiString } from '@jms-1/isxs-validation/common'
+import { IMuiString } from '@jms-1/isxs-validation'
 
 interface IMappers {
     [prop: string]: (value: any, target: any, prop: string) => void

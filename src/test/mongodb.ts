@@ -2,7 +2,7 @@ import { strict } from 'assert'
 import { Collection, Db, MongoClient } from 'mongodb'
 import { v4 as uuid } from 'uuid'
 
-import { ISchema } from '@jms-1/isxs-validation/common'
+import { ISchema } from '@jms-1/isxs-validation'
 
 import { CollectionBase } from '../collection'
 import { uniqueId } from '../common/validation'

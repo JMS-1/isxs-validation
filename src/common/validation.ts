@@ -1,6 +1,6 @@
 import * as djv from 'djv'
 
-import * as common from '@jms-1/isxs-validation/common'
+import * as common from '@jms-1/isxs-validation'
 
 export const uniqueId = '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
 
