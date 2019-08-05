@@ -1,7 +1,8 @@
 import { strict } from 'assert'
 
-import { ISchema, uniqueId } from '../..'
-import { addSchema, validate } from '../validation'
+import { ISchema } from '@jms-1/isxs-validation/common'
+
+import { addSchema, uniqueId, validate } from '../common/validation'
 
 interface ITest {
     _id: string

@@ -1,14 +1,14 @@
 import * as djv from 'djv'
 
-import { IValidatableSchema, IValidationError, IValidationScope } from '../'
+import * as common from '@jms-1/isxs-validation/common'
 
 export const uniqueId = '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
 
 const validation = new djv()
 
-export function addSchema<TSchema extends IValidatableSchema>(schema: TSchema): void {
+export function addSchema<TSchema extends common.IValidatableSchema>(schema: TSchema): void {
     function errorHandler(errorType: string): string {
-        let scope: IValidationScope = schema
+        let scope: common.IValidationScope = schema
 
         const props: string[] = []
 
@@ -45,7 +45,10 @@ export function addSchema<TSchema extends IValidatableSchema>(schema: TSchema): 
     validation.setErrorHandler(undefined)
 }
 
-export function validate<TSchema extends IValidatableSchema>(object: any, schema: TSchema): IValidationError[] {
+export function validate<TSchema extends common.IValidatableSchema>(
+    object: any,
+    schema: TSchema
+): common.IValidationError[] {
     try {
         return <any>validation.validate(schema.$id, object)
     } catch (error) {

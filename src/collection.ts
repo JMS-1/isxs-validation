@@ -2,10 +2,10 @@ import * as debug from 'debug'
 import { Collection, Db, FilterQuery } from 'mongodb'
 
 import { getMessage } from '@jms-1/isxs-tools'
+import { IMuiString, IValidatableSchema, IValidationError } from '@jms-1/isxs-validation/common'
 
-import { IMuiString, IValidatableSchema, IValidationError } from '../'
+import { addSchema, validate } from './common/validation'
 import { convertToMongo } from './mongoDb'
-import { addSchema, validate } from './validation'
 
 const databaseError = debug('database')
 

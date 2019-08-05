@@ -2,9 +2,10 @@ import { strict } from 'assert'
 import { Collection, Db, MongoClient } from 'mongodb'
 import { v4 as uuid } from 'uuid'
 
-import { ISchema } from '../..'
+import { ISchema } from '@jms-1/isxs-validation/common'
+
 import { CollectionBase } from '../collection'
-import { uniqueId } from '../validation'
+import { uniqueId } from '../common/validation'
 
 interface ITestObject {
     _id: string
@@ -72,4 +73,6 @@ export async function mongoDbTests(): Promise<void> {
     const name = errors.filter(r => r.property === 'name')
     strict.strictEqual(name.length, 1, `MongoDb: ungültige Anzahl ${name.length} von Fehlermeldungen für name`)
     strict.strictEqual(name[0].constraint, 'maxLength', 'MongoDb: ungültige Meldung für name')
+
+    console.log('MongoDb abgeschlossen')
 }
