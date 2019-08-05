@@ -31,13 +31,13 @@
         "typescript": "3.5.3"
     },
     "license": "MIT",
-    "main": "lib/index.js",
+    "main": "common/index.js",
     "name": "@jms-1/isxs-validation",
     "repository": "git@github.com:JMS-1/isxs-validation.git",
     "scripts": {
         "build": "tsc",
-        "debug-tests": "node --inspect-brk=29091 lib/test/index",
-        "test": "node lib/test/index",
+        "debug-tests": "node --inspect-brk=29091 test/index",
+        "test": "node test/index",
         "watch": "tsc --watch"
     },
     "types": "./index.d.ts",

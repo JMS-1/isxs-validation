@@ -8,7 +8,7 @@
         "noEmitOnError": true,
         "noImplicitAny": true,
         "noUnusedLocals": true,
-        "outDir": "lib",
+        "outDir": ".",
         "removeComments": true,
         "sourceMap": true,
         "strictPropertyInitialization": false,
